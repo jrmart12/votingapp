@@ -1,0 +1,153 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.newProductButton{
+  color: black;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  padding: 10px;
+  position: absolute;
+  top: 25px;
+  right: 200px;
+}
+
+.input-two{
+  background: none;
+  outline: solid;
+  outline-width: 0.1px;
+  outline-color: silver;
+  border: 0;
+  width: 140px;
+  margin-top: 10px;
+  font-size: 11px;
+  position: absolute;
+  top: 104px;
+  right: 240px;
+}
+
+.input-three{
+  background: none;
+  outline: solid;
+  outline-width: 0.1px;
+  outline-color: silver;
+  border: 0;
+  width: 140px;
+  margin-top: 10px;
+  font-size: 11px;
+  position: absolute;
+  top: 255px;
+  right: 240px;
+}
+
+.input-four{
+  background: none;
+  outline: solid;
+  outline-width: 0.1px;
+  outline-color: silver;
+  border: 0;
+  width: 140px;
+  margin-top: 10px;
+  font-size: 11px;
+  position: absolute;
+  top: 299px;
+  right: 240px;
+}
+
+.input:focus{
+  border: solid 1px lightgray;
+}
+
+textarea{
+  outline: solid;
+  outline-width: 0.1px;
+  outline-color: silver;
+  resize: none;
+  height: 100px;
+  width: 250px;
+  font-size: 11px;
+  position: absolute;
+  top: 150px;
+  right: 200px;
+}
+
+.posLabel{
+  position: absolute;
+  top: 110px;
+  right: 390px;
+}
+
+.posLabelUrl{
+  position: absolute;
+  top: 236px;
+  right: 390px;
+}
+
+.posLabelUrl2{
+  position: absolute;
+  top: 280px;
+  right: 390px;
+}
+
+.acceptButton{
+  background-color: rosybrown;
+  color: black;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  padding: 10px;
+  position: absolute;
+  top: 300px;
+  right: 260px;
+}
+
+.delete{
+  visibility: hidden;
+  cursor: pointer;
+  color: red;
+}
+
+.item{
+
+}
+
+.item:hover .delete{
+  visibility: visible;
+}
+
+.notified{
+  position: absolute;
+  top: 350px;
+  right: 300px;
+}

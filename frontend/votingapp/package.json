@@ -13,5 +13,8 @@
   "devDependencies": {
     "concurrently": "2.2.0",
     "live-server": "https://github.com/acco/live-server/tarball/master"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
