@@ -8,10 +8,10 @@
 }
 
 .App-header {
-  background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #000000;
+  text-align: center;
 }
 
 .App-title {
@@ -27,18 +27,34 @@
   to { transform: rotate(360deg); }
 }
 
+.tile {
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+  background: lightyellow;
+  float: left;
+  font-size: 11px;
+  text-align: left;
+}
 
-.newProductButton{
-  color: black;
+.newProductButton {
+  background: rgb(26, 207, 56);
+  color: white;
   border: none;
+  font-size: 18px;
   cursor: pointer;
   margin-right: 10px;
   margin-left: 10px;
-  font-size: 18px;
-  padding: 10px;
-  position: absolute;
-  top: 25px;
-  right: 200px;
+  padding:10px;
+}
+
+.input {
+  border: 0;
+  background: none;
+  outline: none;
+  margin-top: 10px;
+  width: 140px;
+  font-size: 11px;
 }
 
 .input-two{
@@ -136,13 +152,6 @@ textarea{
   visibility: hidden;
   cursor: pointer;
   color: red;
-}
-
-.item{
-
-}
-
-.item:hover .delete{
   visibility: visible;
 }
 

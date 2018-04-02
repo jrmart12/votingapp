@@ -1,4 +1,5 @@
 import React from 'react'
+import '../semantic-dist/semantic.css'
 
 class Product extends React.Component {
     handleUpVote = () => (

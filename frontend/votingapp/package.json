@@ -1,20 +1,20 @@
 {
   "name": "voting_app",
-  "version": "1.1.0",
-  "author": "Fullstack.io",
-  "scripts": {
-    "go": "open http://localhost:3000; npm run server",
-    "e2e": "nightwatch",
-    "test": "./node_modules/.bin/concurrently -k 'npm run server' 'npm run e2e'",
-    "start": "npm run server",
-    "server": "live-server public --host=localhost --port=3000 --middleware=./disable-browser-cache.js"
-  },
+  "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "concurrently": "2.2.0",
-    "live-server": "https://github.com/acco/live-server/tarball/master"
-  },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axion": "^0.1.0",
+    "axios": "^0.18.0",
+    "immutability-helper": "^2.6.6",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-scripts": "1.1.1",
+    "semantic-ui": "^2.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

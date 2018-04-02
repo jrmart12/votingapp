@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import '../semantic-dist/semantic.css'
 
 class ProductForm extends Component{
     constructor(props){
@@ -31,7 +32,7 @@ class ProductForm extends Component{
             productImageUrl: this.state.productImageUrl
         }
         axios.put(
-            `https://serene-ridge-78379.herokuapp.com/api/v1/products/${this.props.product.id}`,
+            `https://stormy-headland-47707.herokuapp.com/api/v1/products/${this.props.product.id}`,
             {
                 product: product
             }

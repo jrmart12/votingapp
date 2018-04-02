@@ -3,6 +3,7 @@ import axios from 'axios'
 import Product from './Product'
 import ProductForm from './ProductForm'
 import update from 'immutability-helper'
+import '../semantic-dist/semantic.css'
 
 class ProductsContainer extends Component{
 
@@ -11,13 +12,12 @@ class ProductsContainer extends Component{
 		this.state = {
 			products: [],
 			images: [],
-			editingProductId: null,
-			notification: ''
+			editingProductId: null
 		}
 	}
 
 	componentDidMount(){
-		axios.get('https://serene-ridge-78379.herokuapp.com/api/v1/products.json').then(
+		axios.get('https://stormy-headland-47707.herokuapp.com/api/v1/products.json').then(
 			response => {
 				console.log(response)
 				this.setState({products: response.data})
@@ -26,7 +26,7 @@ class ProductsContainer extends Component{
 			})
 	}
 
-	handleProductUpVote = (productId) =>{ //se crea un nuevo array de productos y si se modifica, se modifica un clone envez del original
+	handleProductUpVote = (productId) =>{
 		const nextProducts = this.state.products.map((product) => {
 		  if (product.id === productId) {
 			return Object.assign({}, product, {
@@ -43,7 +43,7 @@ class ProductsContainer extends Component{
 
 	addNewProduct = () => {
 		axios.post(
-			'https://serene-ridge-78379.herokuapp.com/api/v1/products',
+			`https://stormy-headland-47707.herokuapp.com/api/v1/products`,
 			{ product:
 				{
 					title: '',
@@ -53,7 +53,7 @@ class ProductsContainer extends Component{
 				}
 			}
 		).then(response => {
-			//agregar las nuevas ideas sin tener que refresh manualmente 
+			
 			console.log(response)
 			const products = update(this.state.products, {
 				$splice: [[0,0,response.data]]
@@ -72,7 +72,7 @@ class ProductsContainer extends Component{
 		const products = update(this.state.products,{
 			[productIndex]: { $set: product }
 		})
-		this.setState({products: products, notification: 'Saved'})
+		this.setState({products: products})
 	}
 
 	reset = () => {
@@ -85,7 +85,7 @@ class ProductsContainer extends Component{
 
 	delete = (id) => {
 		axios.delete(
-			`https://serene-ridge-78379.herokuapp.com/api/v1/products/${id}`
+			`https://stormy-headland-47707.herokuapp.com/api/v1/products/${id}`
 		).then(response => {
 			const productIndex = this.state.products.findIndex(x => x.id === id)
 			const products = update(this.state.products, {
@@ -106,31 +106,29 @@ class ProductsContainer extends Component{
         <Product
           key={'product-' + product.id}
           id={product.id}
-          title={product.title}
+		  title={product.title}
           description={product.description}
           url={product.url}
           votes={product.votes}
           submitterAvatarUrl={product.submitterAvatarUrl}
           productImageUrl={product.productImageUrl}
-					onVote={this.handleProductUpVote}
-					onClick={this.enableEditing}
-					onDelete={this.delete}
+		  onClick={this.enableEditing}
+		  onDelete={this.delete}
+		  onVote={this.handleProductUpVote}
         />
     ));
     return (
-      <div className='ui unstackable items'>
-				{productComponents}
-					<button className="newProductButton" onClick={this.addNewProduct}>
-						New Product
-					</button>
-					<span className="notified">{this.state.notification}</span>
-						{this.state.products.map((product) => {
-							if(this.state.editingProductId === product.id){
-								return(<ProductForm product={product} key={product.id} updateProduct={this.updateProduct}
-								reset={this.reset}/>)
-							} 
-						})}
-      </div>
+		<div className='ui unstackable items'>
+
+			{productComponents}
+				<span className="notified">{this.state.notification}</span>
+					{this.state.products.map((product) => {
+						if(this.state.editingProductId === product.id){
+							return(<ProductForm product={product} key={product.id} updateProduct={this.updateProduct}
+							reset={this.reset}/>)
+						} 
+					})}
+     	</div>
     );
   }
 }
